@@ -6,3 +6,4 @@ langchain-core
 google-generativeai
 chromadb
 python-dotenv
+pypdf
