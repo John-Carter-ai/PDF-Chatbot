@@ -12,6 +12,7 @@ from langchain_community.vectorstores import Chroma
 from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate
+import compat  # patches SQLite before Chroma loads
 
 # 🛠️ Ensure event loop for async client (required in Streamlit thread)
 def ensure_event_loop():
@@ -60,4 +61,5 @@ if query:
     response = rag_chain.invoke({"input": query})
 
     st.write(response["answer"])
+
 
