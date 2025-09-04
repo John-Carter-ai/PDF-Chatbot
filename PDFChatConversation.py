@@ -2,6 +2,7 @@
 
 import streamlit as st
 import os
+os.environ["CHROMA_DB_IMPL"] = "duckdb"
 import asyncio
 
 # LangChain & Google GenAI imports
@@ -61,6 +62,7 @@ if query:
     response = rag_chain.invoke({"input": query})
 
     st.write(response["answer"])
+
 
 
 
